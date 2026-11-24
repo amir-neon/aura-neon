@@ -75,10 +75,11 @@ jobs:
             echo "WARN: sdkmanager not found on this runner image - relying on AGP auto-download (licenses are pre-accepted on GitHub images)"
           fi
 
-      - name: Gradle assembleDebug + test
+      - name: Set up Gradle (provision + cache)
         uses: gradle/actions/setup-gradle@v4
-        with:
-          arguments: assembleDebug test --stacktrace
+
+      - name: Gradle assembleDebug + test
+        run: ./gradlew assembleDebug test --stacktrace
 
       # ---- GUARD 1: no INTERNET in the merged manifest (fail-if-found) ----
       - name: Guard 1 - zero INTERNET permission
