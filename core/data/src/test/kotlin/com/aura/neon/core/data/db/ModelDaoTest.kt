@@ -1,7 +1,6 @@
 package com.aura.neon.core.data.db
 
 import androidx.room.Room
-import androidx.test.core.app.ApplicationProvider
 import com.aura.neon.core.domain.model.ModelInfo
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -10,6 +9,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
@@ -21,7 +21,7 @@ class ModelDaoTest {
     @Before
     fun setUp() {
         db = Room.inMemoryDatabaseBuilder(
-            ApplicationProvider.getApplicationContext(),
+            RuntimeEnvironment.getApplication(),
             AuraDatabase::class.java,
         ).allowMainThreadQueries().build()
     }
