@@ -79,10 +79,10 @@ aura-neon/
 
 ## ریسک‌های شناخته‌شده (صادقانه)
 
-- ~~مکانیزم Kotlin در AGP 9 (R2)~~ — **تعیین شد**: AGP 9.5.2 پلاگین خارجی `kotlin-android` را رد می‌کند؛ مکانیزم = built-in Kotlin، یک‌بار در build-logic فلیپ شد.
-- جفت KSP↔Kotlin روی built-in Kotlin و سازگاری metadata — اولین run سبز قاضی نهایی است.
-- فونت متغیر Vazirmatn با `FontVariation` — اگر کامپایلر اختلاف API داشته باشد، اصلاح جزئی است.
+- **R2 حل شد**: AGP 9.5.2 پلاگین خارجی `kotlin-android` را رد می‌کند؛ مکانیزم = built-in Kotlin (یک فلیپ در build-logic). جفت KSP↔built-in Kotlin هم با run سبز تایید شد.
+- compileSdk = **37.1** (الزام androidx 2026.11؛ طبق شرط خود اسپک «فقط اگر deps بخواهند»)، targetSdk همان 34 نهایی.
 - اندازه‌گیری «صفر کرش با مدل سنگین» مستلزم چک‌لیست QA دستی پیش از هر تگ است (در SPEC).
+- فاز ۲ (NDK/llama.cpp/Vulkan) ریسک‌های خاص خودش را خواهد داشت — جداگانه مدیریت می‌شود.
 
 ## مجوزها
 

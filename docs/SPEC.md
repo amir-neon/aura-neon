@@ -37,10 +37,12 @@ v2.5 -> v2.6 (live verification pass, 2026-11-24):
       plugins (the single flip point R2 was designed for). KGP 2.3.21
       stays on the build classpath via the kotlin-jvm/compose markers
       (AGP runtime minimum is 2.2.10 - no forced downgrade).
-  W7  androidx.hilt 1.4.0 AAR metadata requires compileSdk 37
-      (CI: ':app is currently compiled against android-36'). Spec
-      clause applied: "raise further only if deps demand it" ->
-      compileSdk 36 -> 37 (targetSdk 34 unchanged, FINAL).
+  W7  androidx 2026.11 line (hilt 1.4.0, compose.ui 1.13.0) requires
+      compileSdk 37 / 37.1 (minor SDK releases). Spec clause applied:
+      "raise further only if deps demand it" -> compileSdk = 37 +
+      compileSdkMinor = 1 (targetSdk 34 unchanged, FINAL).
+  W8  FIRST FULLY GREEN BUILD: run 45328264207 (2026-11-24) -
+      preflight + assembleDebug + test + all 3 guards + artifact upload.
 
 PROJECT INFO
 ------------------------------------------------------------
@@ -404,7 +406,7 @@ FINAL CHECKLIST
 [x] PLACEMENTS resolved; Release QA checklist defined
 [x] Known-good fallback stack documented (Appendix A)
 [x] All pins web-verified 2026-11-24 (24/24 probes green/OK-or-transient)
-[x] Phase 1 features implemented (first green build = final proof)
+[x] Phase 1 features implemented AND CI-green (run 45328264207)
 [ ] Phase 2-5 features per plan
 
 APPENDIX A - KNOWN-GOOD FALLBACK STACK (VERIFIED v3.1)
