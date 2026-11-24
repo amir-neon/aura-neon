@@ -60,7 +60,20 @@ jobs:
           java-version: '21'
 
       - name: Install SDK platform 36
-        run: yes | sdkmanager --install "platforms;android-36" > /dev/null
+        run: |
+          SDKMANAGER=""
+          for CAND in \
+            "$(command -v sdkmanager)" \
+            "${ANDROID_HOME:-/usr/local/lib/android/sdk}/cmdline-tools/latest/bin/sdkmanager" \
+            "${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}/cmdline-tools/latest/bin/sdkmanager"; do
+            if [ -n "$CAND" ] && [ -x "$CAND" ]; then SDKMANAGER="$CAND"; break; fi
+          done
+          if [ -n "$SDKMANAGER" ]; then
+            yes | "$SDKMANAGER" --install "platforms;android-36" > /dev/null
+            echo "platforms;android-36 installed via $SDKMANAGER"
+          else
+            echo "WARN: sdkmanager not found on this runner image - relying on AGP auto-download (licenses are pre-accepted on GitHub images)"
+          fi
 
       - name: Gradle assembleDebug + test
         uses: gradle/actions/setup-gradle@v4
