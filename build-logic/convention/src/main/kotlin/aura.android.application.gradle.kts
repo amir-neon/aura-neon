@@ -28,12 +28,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
-    // R3: compose feature flag lives with the base android extensions.
-    // (Non-compose modules simply ignore it.)
-    buildFeatures {
-        compose = true
-    }
 }
 
 // Catalog access without type-safe accessors (not generated for precompiled

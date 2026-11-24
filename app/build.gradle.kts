@@ -5,6 +5,12 @@ plugins {
 }
 
 android {
+    // R3: compose feature flag (module-local: AGP requires the compose plugin
+    // wherever this flag is on; non-compose modules keep it off)
+    buildFeatures {
+        compose = true
+    }
+
     // R17 (v2.5): minify OFF is a documented decision, not an omission.
     buildTypes {
         release {

@@ -4,6 +4,12 @@ plugins {
     id("aura.hilt")
 }
 
+android {
+    buildFeatures {
+        compose = true
+    }
+}
+
 dependencies {
     implementation(project(":core:ui"))
     implementation(project(":core:domain"))

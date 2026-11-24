@@ -3,6 +3,13 @@ plugins {
     id("aura.android.compose")
 }
 
+android {
+    // R3: compose feature flag
+    buildFeatures {
+        compose = true
+    }
+}
+
 dependencies {
     // Compose surface exposed to all feature modules (BOM pins the versions).
     api(libs.compose.ui)
