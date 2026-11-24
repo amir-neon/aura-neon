@@ -12,10 +12,10 @@ import com.aura.neon.core.ui.R
  * across weights (spec: SINGLE font policy).
  */
 val Vazirmatn: FontFamily = FontFamily(
-    Font(R.font.vazirmatn, weight = FontWeight.Normal, variationSettings = FontVariation.Settings(FontVariation.weight(FontWeight.W400))),
-    Font(R.font.vazirmatn, weight = FontWeight.Medium, variationSettings = FontVariation.Settings(FontVariation.weight(FontWeight.W500))),
-    Font(R.font.vazirmatn, weight = FontWeight.SemiBold, variationSettings = FontVariation.Settings(FontVariation.weight(FontWeight.W600))),
-    Font(R.font.vazirmatn, weight = FontWeight.Bold, variationSettings = FontVariation.Settings(FontVariation.weight(FontWeight.W700))),
+    Font(R.font.vazirmatn, weight = FontWeight.Normal, variationSettings = FontVariation.Settings(FontVariation.weight(400))),
+    Font(R.font.vazirmatn, weight = FontWeight.Medium, variationSettings = FontVariation.Settings(FontVariation.weight(500))),
+    Font(R.font.vazirmatn, weight = FontWeight.SemiBold, variationSettings = FontVariation.Settings(FontVariation.weight(600))),
+    Font(R.font.vazirmatn, weight = FontWeight.Bold, variationSettings = FontVariation.Settings(FontVariation.weight(700))),
 )
 
 private val base = Typography()

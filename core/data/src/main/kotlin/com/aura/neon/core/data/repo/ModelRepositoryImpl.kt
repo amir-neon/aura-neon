@@ -12,6 +12,7 @@ import com.aura.neon.core.domain.repository.ModelRepository
 import com.aura.neon.core.domain.repository.ScanError
 import com.aura.neon.core.domain.repository.ScanOutcome
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
