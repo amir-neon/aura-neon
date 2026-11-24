@@ -3,7 +3,7 @@
 چت‌بات LLM کاملاً آفلاین برای اندروید — llama.cpp + Jetpack Compose.
 **صفر اینترنت، در سطح باینری و اثبات‌پذیر.**
 
-- پکیج: `com.aura.neon` · minSdk 29 · targetSdk 34 (نهایی) · compileSdk 36
+- پکیج: `com.aura.neon` · minSdk 29 · targetSdk 34 (نهایی) · compileSdk 37 (الزام androidx.hilt 1.4.0)
 - خروجی: APK امضاشده‌ی arm64-v8a، صفحه‌بندی ۱۶KB — **فقط GitHub Releases، هرگز Google Play**
 - فونت: Vazirmatn (تک‌فونت، fa+en، OFL) · مجوز کد: Apache-2.0
 

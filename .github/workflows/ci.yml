@@ -29,15 +29,15 @@ jobs:
       - name: Resolve every declared pin (Maven/Gradle/portal)
         run: bash scripts/preflight_pins.sh
 
-      - name: Verify SDK packages (platform 36, NDK r30)
+      - name: Verify SDK packages (platform 37, NDK r30)
         run: |
           SDKMANAGER="$(command -v sdkmanager || echo "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager")"
           "$SDKMANAGER" --list > /tmp/sdk.list 2>/dev/null || true
-          grep -q "platforms;android-36" /tmp/sdk.list \
-            || { echo "PIN VERIFICATION FAILED: platforms;android-36 not installable"; exit 1; }
+          grep -q "platforms;android-37" /tmp/sdk.list \
+            || { echo "PIN VERIFICATION FAILED: platforms;android-37 not installable"; exit 1; }
           grep -q "ndk;30.0.16248370" /tmp/sdk.list \
             || { echo "PIN VERIFICATION FAILED: NDK 30.0.16248370 not installable"; exit 1; }
-          echo "SDK packages verified: platforms;android-36 + ndk;30.0.16248370"
+          echo "SDK packages verified: platforms;android-37 + ndk;30.0.16248370"
 
       - name: Declared pairing (R2/R4 - build job is the final arbiter)
         run: |
@@ -69,8 +69,8 @@ jobs:
             if [ -n "$CAND" ] && [ -x "$CAND" ]; then SDKMANAGER="$CAND"; break; fi
           done
           if [ -n "$SDKMANAGER" ]; then
-            yes | "$SDKMANAGER" --install "platforms;android-36" > /dev/null
-            echo "platforms;android-36 installed via $SDKMANAGER"
+            yes | "$SDKMANAGER" --install "platforms;android-37" > /dev/null
+            echo "platforms;android-37 installed via $SDKMANAGER"
           else
             echo "WARN: sdkmanager not found on this runner image - relying on AGP auto-download (licenses are pre-accepted on GitHub images)"
           fi

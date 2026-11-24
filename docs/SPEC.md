@@ -37,6 +37,10 @@ v2.5 -> v2.6 (live verification pass, 2026-11-24):
       plugins (the single flip point R2 was designed for). KGP 2.3.21
       stays on the build classpath via the kotlin-jvm/compose markers
       (AGP runtime minimum is 2.2.10 - no forced downgrade).
+  W7  androidx.hilt 1.4.0 AAR metadata requires compileSdk 37
+      (CI: ':app is currently compiled against android-36'). Spec
+      clause applied: "raise further only if deps demand it" ->
+      compileSdk 36 -> 37 (targetSdk 34 unchanged, FINAL).
 
 PROJECT INFO
 ------------------------------------------------------------
@@ -45,7 +49,10 @@ App Name (device) : aura (lowercase)
 Package ID        : com.aura.neon
 minSdk            : 29 (Android 10)
 targetSdk         : 34 (Android 14) - FINAL, no Play upgrades
-compileSdk        : 36 (Android 16) - 2026 androidx requires >=36
+compileSdk        : 37 (Android 17) - 2026 androidx requires it:
+                    androidx.hilt 1.4.0 AAR metadata demands 37
+                    (spec clause: raise only if deps demand it - they do).
+                    targetSdk stays 34 FINAL.
 Primary Language  : Kotlin
 Engine Core       : C++ (llama.cpp, pinned tag b12651, submodule)
 UI Framework      : Jetpack Compose + Material 3

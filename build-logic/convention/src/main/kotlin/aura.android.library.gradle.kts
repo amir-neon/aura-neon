@@ -14,7 +14,7 @@ val auraNamespace: String = "com.aura.neon" + project.path.replace(":", ".")
 
 android {
     namespace = auraNamespace
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         minSdk = 29
