@@ -5,6 +5,12 @@ plugins {
     id("org.jetbrains.kotlin.jvm")
 }
 
+// R7: JDK 21 runs Gradle, but all compiled targets are 17 (Java AND Kotlin).
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
 kotlin {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_17)
