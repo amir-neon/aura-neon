@@ -1,3 +1,4 @@
+import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -35,9 +36,15 @@ android {
     }
 }
 
+// Catalog access without type-safe accessors (not generated for precompiled
+// scripts of an included build in this Gradle version).
+val libsCatalog: org.gradle.api.artifacts.VersionCatalog? =
+    runCatching { extensions.getByType(VersionCatalogsExtension::class.java).named("libs") }.getOrNull()
+
 dependencies {
-    // R3: Compose BOM platform (pins all compose artifact versions).
-    implementation(platform(libs.compose.bom))
+    libsCatalog?.findLibrary("compose-bom")?.get()?.let { bom ->
+        add("implementation", platform(bom))
+    }
 }
 
 // Built-in Kotlin: configure via the compile tasks (extension type is KGP's,

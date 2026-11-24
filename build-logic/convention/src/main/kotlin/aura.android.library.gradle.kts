@@ -1,3 +1,5 @@
+import org.gradle.api.artifacts.VersionCatalog
+import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -29,9 +31,13 @@ android {
     }
 }
 
+val libsCatalog: VersionCatalog? =
+    runCatching { extensions.getByType(VersionCatalogsExtension::class.java).named("libs") }.getOrNull()
+
 dependencies {
-    // R3: Compose BOM platform (pins all compose artifact versions).
-    implementation(platform(libs.compose.bom))
+    libsCatalog?.findLibrary("compose-bom")?.get()?.let { bom ->
+        add("implementation", platform(bom))
+    }
 }
 
 tasks.withType<KotlinCompile>().configureEach {
