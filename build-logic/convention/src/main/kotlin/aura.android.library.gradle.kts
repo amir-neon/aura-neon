@@ -22,6 +22,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
+    // R3: compose feature flag lives with the base android extension.
+    buildFeatures {
+        compose = true
+    }
 }
 
 tasks.withType<KotlinCompile>().configureEach {
