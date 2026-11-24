@@ -29,6 +29,11 @@ android {
     }
 }
 
+dependencies {
+    // R3: Compose BOM platform (pins all compose artifact versions).
+    implementation(platform(libs.compose.bom))
+}
+
 tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_17)

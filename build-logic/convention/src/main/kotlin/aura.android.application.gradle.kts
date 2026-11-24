@@ -35,6 +35,11 @@ android {
     }
 }
 
+dependencies {
+    // R3: Compose BOM platform (pins all compose artifact versions).
+    implementation(platform(libs.compose.bom))
+}
+
 // Built-in Kotlin: configure via the compile tasks (extension type is KGP's,
 // which AGP 9 depends on at runtime - same classes, version from classpath).
 tasks.withType<KotlinCompile>().configureEach {
