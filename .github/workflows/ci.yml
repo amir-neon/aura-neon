@@ -33,7 +33,7 @@ jobs:
         run: |
           SDKMANAGER="$(command -v sdkmanager || echo "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager")"
           "$SDKMANAGER" --list > /tmp/sdk.list 2>/dev/null || true
-          grep -q "platforms;android-37" /tmp/sdk.list \
+          grep -q "platforms;android-37.1" /tmp/sdk.list \
             || { echo "PIN VERIFICATION FAILED: platforms;android-37 not installable"; exit 1; }
           grep -q "ndk;30.0.16248370" /tmp/sdk.list \
             || { echo "PIN VERIFICATION FAILED: NDK 30.0.16248370 not installable"; exit 1; }
@@ -76,7 +76,7 @@ jobs:
           "$SDKMANAGER" --list 2>/dev/null | grep -E "platforms;android-3[0-9]" | head -20 || true
           echo "--- install attempt ---"
           for attempt in 1 2; do
-            if yes | "$SDKMANAGER" --install "platforms;android-37" > /dev/null 2>&1; then
+            if yes | "$SDKMANAGER" --install "platforms;android-37.1" > /dev/null 2>&1; then
               echo "platforms;android-37 installed via $SDKMANAGER"
               exit 0
             fi

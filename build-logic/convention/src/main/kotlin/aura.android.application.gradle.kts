@@ -15,6 +15,7 @@ plugins {
 android {
     namespace = "com.aura.neon"
     compileSdk = 37
+    compileSdkMinor = 1
 
     defaultConfig {
         applicationId = "com.aura.neon"
