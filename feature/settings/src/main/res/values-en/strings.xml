@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Settings</string>
+    <string name="about_offline">Network access</string>
+    <string name="about_offline_value">Zero - no INTERNET permission and no networking libraries; CI verifies this at the binary level too.</string>
+    <string name="about_distribution">Distribution</string>
+    <string name="about_distribution_value">GitHub Releases only (signed APK); Google Play never.</string>
+    <string name="about_device_profile">Device profile</string>
+    <string name="about_device_profile_value">%1$s · RAM: %2$s</string>
+    <string name="about_version">Version</string>
+    <string name="about_version_value">0.1.0 (Phase 1)</string>
+    <string name="about_license">Licenses</string>
+    <string name="about_license_value">Code: Apache-2.0 · Font: OFL (Vazirmatn)</string>
+    <string name="settings_phase3">Full model settings (loading, sampling, chat template…) land on this page in Phase 3.</string>
+</resources>

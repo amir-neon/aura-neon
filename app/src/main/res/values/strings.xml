@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">aura</string>
+    <string name="nav_chat">چت</string>
+    <string name="nav_models">مدل‌ها</string>
+    <string name="nav_settings">تنظیمات</string>
+</resources>

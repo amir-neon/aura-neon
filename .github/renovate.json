@@ -1,0 +1,58 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "timezone": "Asia/Tehran",
+  "schedule": ["before 7am on Monday"],
+  "rangeStrategy": "pin",
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "description": "Stable-only: never propose pre-release versions (spec)",
+      "matchPackagePatterns": ["*"],
+      "allowedVersions": "/^v?\\d+(\\.\\d+)+$/"
+    },
+    {
+      "description": "llama.cpp submodule is handled by the dedicated bump workflow (spec) - excluded here",
+      "matchManagers": ["git-submodules"],
+      "enabled": false
+    },
+    {
+      "description": "androidx + compose: weekly group",
+      "matchPackagePrefixes": ["androidx."],
+      "groupName": "androidx-and-compose",
+      "separateMajorMinor": true
+    },
+    {
+      "description": "androidx patch+minor auto-merge after CI green + branch protection (spec)",
+      "matchPackagePrefixes": ["androidx."],
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true
+    },
+    {
+      "description": "androidx majors: manual review (spec)",
+      "matchPackagePrefixes": ["androidx."],
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    },
+    {
+      "description": "Build toolchain (AGP/Gradle/Kotlin/KSP/Hilt): ALWAYS manual review (spec)",
+      "matchPackagePrefixes": [
+        "com.android.tools.build",
+        "com.android.application",
+        "com.android.library",
+        "org.jetbrains.kotlin",
+        "com.google.devtools.ksp",
+        "com.google.dagger",
+        "gradle"
+      ],
+      "groupName": "build-toolchain",
+      "automerge": false
+    },
+    {
+      "description": "Test tooling: manual too (low frequency)",
+      "matchPackageNames": ["junit:junit", "app.cash.turbine:turbine", "org.robolectric:robolectric"],
+      "groupName": "test-tooling",
+      "automerge": false
+    }
+  ]
+}

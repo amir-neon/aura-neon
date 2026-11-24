@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="models_title">Models</string>
+    <string name="pick_folder">Pick folder</string>
+    <string name="scan">Scan</string>
+    <string name="empty_models_title">No models registered yet</string>
+    <string name="empty_models_subtitle">Pick the folder that holds your .gguf files; they are registered in place and never copied.</string>
+    <string name="scan_found">Found %1$d .gguf files (%2$d new, %3$d updated)</string>
+    <string name="err_no_folder">Pick a folder first.</string>
+    <string name="err_non_local">That folder is backed by a cloud service. Only local storage is supported.</string>
+    <string name="err_permission">Folder access was lost; pick it again.</string>
+    <string name="err_empty">No .gguf files found in this folder.</string>
+    <string name="verdict_ok">Fits in RAM</string>
+    <string name="verdict_tight">Near RAM limit</string>
+    <string name="verdict_too_large">Larger than RAM</string>
+    <string name="enabled">Enabled</string>
+    <string name="pin">Pin</string>
+    <string name="unpin">Unpin</string>
+    <string name="edit_note">Note</string>
+    <string name="note_hint">e.g. daily driver, fast answers…</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Remove from list</string>
+    <string name="delete_confirm_title">Remove from the list?</string>
+    <string name="delete_confirm_text">Only the registration inside aura is removed; the file itself stays untouched.</string>
+</resources>

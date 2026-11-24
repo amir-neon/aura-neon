@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="chat_title">Chat</string>
+    <string name="chat_phase2_title">The engine arrives in Phase 2</string>
+    <string name="chat_phase2_subtitle">The llama.cpp native bridge, token streaming and full generation settings - all local, zero connectivity.</string>
+</resources>

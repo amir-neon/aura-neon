@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="chat_title">چت</string>
+    <string name="chat_phase2_title">موتور در فاز ۲ روشن می‌شود</string>
+    <string name="chat_phase2_subtitle">پل llama.cpp (native)، استریم توکن و کنترل کامل تنظیمات تولید — همه محلی، بدون هیچ اتصالی.</string>
+</resources>

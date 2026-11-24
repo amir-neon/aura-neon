@@ -1,0 +1,79 @@
+name: llama.cpp submodule bump
+
+# Spec workflow 3: phone-only friendly submodule management.
+# First run adds the submodule; later runs move the gitlink to a pinned tag.
+# NEVER floating master, never a direct push to main.
+
+on:
+  workflow_dispatch:
+    inputs:
+      llama_tag:
+        description: 'llama.cpp git tag to pin (default: b12651)'
+        default: 'b12651'
+        required: true
+        type: string
+  schedule:
+    - cron: '0 3 1 * *' # monthly
+
+permissions:
+  contents: write
+
+concurrency:
+  group: submodule-bump
+  cancel-in-progress: false
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GIT_TERMINAL_PROMPT: 0
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pin submodule to tag and open PR
+        run: |
+          set -eu
+          git config user.name "aura-bot"
+          git config user.email "amir-neon@users.noreply.github.com"
+
+          TAG="${LLAMA_TAG:-b12651}"
+          SUBDIR="engine/llama/third_party/llama.cpp"
+
+          if ! grep -q "llama.cpp" .gitmodules 2>/dev/null; then
+            echo "First run: adding submodule at $SUBDIR"
+            git submodule add https://github.com/ggml-org/llama.cpp.git "$SUBDIR"
+          fi
+
+          # Materialize the working tree of the submodule (checkout is empty on
+          # a fresh actions/checkout when .gitmodules exists but wasn't fetched).
+          git submodule update --init --recursive "$SUBDIR" || true
+          if [ ! -d "$SUBDIR/.git" ] && [ ! -f "$SUBDIR/.git" ]; then
+            git clone --filter=blob:none https://github.com/ggml-org/llama.cpp.git "$SUBDIR"
+          fi
+
+          pushd "$SUBDIR"
+          git fetch --tags --depth 1 origin "refs/tags/$TAG:refs/tags/$TAG" || git fetch --depth 1 origin tag "$TAG"
+          git checkout "$TAG"
+          popd
+
+          BRANCH="bot/llama-bump-$TAG"
+          git switch -c "$BRANCH" 2>/dev/null || git switch "$BRANCH"
+          git add .gitmodules "$SUBDIR"
+          if git diff --cached --quiet; then
+            echo "Nothing to do: already at $TAG"
+            exit 0
+          fi
+          git commit -m "chore(engine): pin llama.cpp submodule to $TAG"
+          git push origin "$BRANCH"
+
+          gh pr create \
+            --repo "$GITHUB_REPOSITORY" \
+            --base main \
+            --head "$BRANCH" \
+            --title "chore(engine): llama.cpp -> $TAG" \
+            --body "Phone-only submodule bump (spec workflow 3). Review the gitlink; never floating master." \
+            || echo "PR already exists or failed - branch is pushed either way."
+        env:
+          LLAMA_TAG: ${{ inputs.llama_tag }}

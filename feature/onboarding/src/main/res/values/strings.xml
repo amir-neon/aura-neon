@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_welcome">به aura خوش آمدی</string>
+    <string name="onboarding_title_1">کاملاً آفلاین</string>
+    <string name="onboarding_body_1">همه‌چیز روی خود گوشی اجرا می‌شود: مدل‌های ‎.gguf، پردازش، ذخیره‌ی گفتگوها. هیچ مجوز اینترنتی و هیچ درخواست شبکه‌ای وجود ندارد — و CI روی خود باینری هم چک می‌کند.</string>
+    <string name="onboarding_title_2">پوشه‌ی مدل‌ها را انتخاب کن</string>
+    <string name="onboarding_body_2">فایل‌های ‎.gguf را کجا گذاشتی؟ همون پوشه را از صفحه‌ی «مدل‌ها» انتخاب کن. aura فقط آن‌ها را ثبت می‌کند؛ هیچ فایلی کپی یا جابه‌جا نمی‌شود.</string>
+    <string name="onboarding_title_3">نصب و بروزرسانی از GitHub</string>
+    <string name="onboarding_body_3">این اپ فقط از GitHub Releases نصب می‌شود (APK امضاشده). برای نصب باید «نصب از منابع ناشناس» را برای مرورگر/فایل‌منیجر فعال کنی — راهنمای کامل داخل README ریپو هست.</string>
+    <string name="onboarding_back">قبلی</string>
+    <string name="onboarding_next">بعدی</string>
+    <string name="onboarding_start">شروع</string>
+</resources>

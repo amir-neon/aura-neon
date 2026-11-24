@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="models_title">مدل‌ها</string>
+    <string name="pick_folder">انتخاب پوشه</string>
+    <string name="scan">اسکن</string>
+    <string name="empty_models_title">هنوز مدلی ثبت نشده است</string>
+    <string name="empty_models_subtitle">پوشه‌ای که فایل‌های ‎.gguf داخلش است انتخاب کن تا بدون کپی، همین‌جا ثبت شوند. فایل‌ها سر جایشان می‌مانند.</string>
+    <string name="scan_found">‏%1$d فایل ‎.gguf پیدا شد (%2$d جدید، %3$d به‌روز)</string>
+    <string name="err_no_folder">اول یک پوشه انتخاب کن.</string>
+    <string name="err_non_local">این پوشه از یک سرویس ابری است. فقط حافظه‌ی محلی پشتیبانی می‌شود.</string>
+    <string name="err_permission">دسترسی به پوشه از دست رفته؛ دوباره انتخابش کن.</string>
+    <string name="err_empty">در این پوشه فایل ‎.gguf پیدا نشد.</string>
+    <string name="verdict_ok">جای کافی در RAM</string>
+    <string name="verdict_tight">نزدیک سقف RAM</string>
+    <string name="verdict_too_large">بزرگ‌تر از RAM</string>
+    <string name="enabled">فعال</string>
+    <string name="pin">سنجاق</string>
+    <string name="unpin">برداشتن سنجاق</string>
+    <string name="edit_note">یادداشت</string>
+    <string name="note_hint">مثلاً: مدل روزمره، پاسخ سریع…</string>
+    <string name="save">ذخیره</string>
+    <string name="cancel">لغو</string>
+    <string name="delete">حذف از فهرست</string>
+    <string name="delete_confirm_title">از فهرست حذف شود؟</string>
+    <string name="delete_confirm_text">فقط ثبت مدل از داخل aura پاک می‌شود؛ خود فایل دست‌نخورده می‌ماند.</string>
+</resources>

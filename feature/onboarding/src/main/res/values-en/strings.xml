@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_welcome">Welcome to aura</string>
+    <string name="onboarding_title_1">Fully offline</string>
+    <string name="onboarding_body_1">Everything runs on your phone: the .gguf models, the inference, the chat history. There is no internet permission and no network request - and CI verifies that at the binary level too.</string>
+    <string name="onboarding_title_2">Pick your models folder</string>
+    <string name="onboarding_body_2">Where did you put your .gguf files? Pick that folder from the Models screen. aura only registers them in place; no file is ever copied or moved.</string>
+    <string name="onboarding_title_3">Install and update from GitHub</string>
+    <string name="onboarding_body_3">This app installs only from GitHub Releases (signed APK). You will need to allow "install unknown apps" for your browser/file manager - the full guide is in the repo README.</string>
+    <string name="onboarding_back">Back</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_start">Start</string>
+</resources>

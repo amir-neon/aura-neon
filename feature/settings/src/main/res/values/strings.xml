@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">تنظیمات</string>
+    <string name="about_offline">اتصال شبکه</string>
+    <string name="about_offline_value">صفر — بدون مجوز INTERNET و بدون هیچ کتابخانه‌ای شبکه‌ای؛ در سطح باینری هم توسط CI بررسی می‌شود.</string>
+    <string name="about_distribution">توزیع</string>
+    <string name="about_distribution_value">فقط GitHub Releases (APK امضاشده)؛ Google Play هرگز.</string>
+    <string name="about_device_profile">پروفایل دستگاه</string>
+    <string name="about_device_profile_value">%1$s · RAM: %2$s</string>
+    <string name="about_version">نسخه</string>
+    <string name="about_version_value">0.1.0 (فاز ۱)</string>
+    <string name="about_license">مجوزها</string>
+    <string name="about_license_value">کد: Apache-2.0 · فونت: OFL (Vazirmatn)</string>
+    <string name="settings_phase3">تنظیمات کامل مدل (بارگذاری، نمونه‌برداری، قالب گفتگو…) در فاز ۳ به همین صفحه اضافه می‌شود.</string>
+</resources>
