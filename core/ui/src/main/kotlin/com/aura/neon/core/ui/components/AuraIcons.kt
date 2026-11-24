@@ -45,8 +45,8 @@ object AuraIcons {
             path(fill = SolidColor(Color.Black)) {
                 // tack head
                 moveTo(14f, 3.5f)
-                arcTo(3f, 3f, 0f, isForceArcTo = true, isRelative = false, 11f, 3.5f)
-                arcTo(3f, 3f, 0f, isForceArcTo = true, isRelative = false, 14f, 3.5f)
+                arcTo(3f, 3f, 0f, true, true, 11f, 3.5f)
+                arcTo(3f, 3f, 0f, true, true, 14f, 3.5f)
                 close()
                 // tapered stem
                 moveTo(11.2f, 8f)
@@ -101,8 +101,8 @@ object AuraIcons {
             path(fill = SolidColor(Color.Black)) {
                 // lens
                 moveTo(10.5f, 3f)
-                arcTo(7.5f, 7.5f, 0f, isForceArcTo = true, isRelative = false, 10.5f, 18f)
-                arcTo(7.5f, 7.5f, 0f, isForceArcTo = true, isRelative = false, 10.5f, 3f)
+                arcTo(7.5f, 7.5f, 0f, true, true, 10.5f, 18f)
+                arcTo(7.5f, 7.5f, 0f, true, true, 10.5f, 3f)
                 close()
                 // handle
                 moveTo(15.6f, 15.6f)
