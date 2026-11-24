@@ -59,7 +59,7 @@ jobs:
           distribution: temurin
           java-version: '21'
 
-      - name: Install SDK platform 36
+      - name: Install SDK platform 37 (evidence + non-fatal, AGP auto-download as fallback)
         run: |
           SDKMANAGER=""
           for CAND in \
@@ -68,12 +68,22 @@ jobs:
             "${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}/cmdline-tools/latest/bin/sdkmanager"; do
             if [ -n "$CAND" ] && [ -x "$CAND" ]; then SDKMANAGER="$CAND"; break; fi
           done
-          if [ -n "$SDKMANAGER" ]; then
-            yes | "$SDKMANAGER" --install "platforms;android-37" > /dev/null
-            echo "platforms;android-37 installed via $SDKMANAGER"
-          else
-            echo "WARN: sdkmanager not found on this runner image - relying on AGP auto-download (licenses are pre-accepted on GitHub images)"
+          if [ -z "$SDKMANAGER" ]; then
+            echo "WARN: sdkmanager not found - relying on AGP auto-download"
+            exit 0
           fi
+          echo "--- available platforms (evidence) ---"
+          "$SDKMANAGER" --list 2>/dev/null | grep -E "platforms;android-3[0-9]" | head -20 || true
+          echo "--- install attempt ---"
+          for attempt in 1 2; do
+            if yes | "$SDKMANAGER" --install "platforms;android-37" > /dev/null 2>&1; then
+              echo "platforms;android-37 installed via $SDKMANAGER"
+              exit 0
+            fi
+            echo "install attempt $attempt failed; retrying after manifest refresh"
+            sleep 5
+          done
+          echo "WARN: direct install failed - relying on AGP auto-download (licenses are pre-accepted on GitHub images)"
 
       - name: Set up Gradle (provision + cache)
         uses: gradle/actions/setup-gradle@v4
