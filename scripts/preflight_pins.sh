@@ -71,6 +71,7 @@ probe "turbine-1.2.1"            "$M/app/cash/turbine/turbine/1.2.1/turbine-1.2.
 probe "marker-kotlin-android"    "$P/org/jetbrains/kotlin/android/org.jetbrains.kotlin.android.gradle.plugin/2.3.21/org.jetbrains.kotlin.android.gradle.plugin-2.3.21.pom"
 probe "marker-kotlin-jvm"        "$P/org/jetbrains/kotlin/jvm/org.jetbrains.kotlin.jvm.gradle.plugin/2.3.21/org.jetbrains.kotlin.jvm.gradle.plugin-2.3.21.pom"
 probe "marker-kotlin-compose"    "$P/org/jetbrains/kotlin/plugin/compose/org.jetbrains.kotlin.plugin.compose.gradle.plugin/2.3.21/org.jetbrains.kotlin.plugin.compose.gradle.plugin-2.3.21.pom"
+probe "impl-compose-compiler"    "$M/org/jetbrains/kotlin/compose-compiler-gradle-plugin/2.3.21/compose-compiler-gradle-plugin-2.3.21.pom"
 probe "marker-ksp"               "$P/com/google/devtools/ksp/com.google.devtools.ksp.gradle.plugin/2.3.14/com.google.devtools.ksp.gradle.plugin-2.3.14.pom"
 probe "marker-hilt"              "$P/com/google/dagger/hilt/android/com.google.dagger.hilt.android.gradle.plugin/2.60.1/com.google.dagger.hilt.android.gradle.plugin-2.60.1.pom"
 probe "marker-agp-application"   "$G/com/android/application/com.android.application.gradle.plugin/9.5.2/com.android.application.gradle.plugin-9.5.2.pom"
