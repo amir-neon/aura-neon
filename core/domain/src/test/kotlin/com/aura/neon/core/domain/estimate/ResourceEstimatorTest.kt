@@ -8,9 +8,11 @@ class ResourceEstimatorTest {
 
     @Test
     fun `kv cache math matches the R15 formula`() {
-        // 2 * n_layers * n_ctx * n_kv_heads * head_dim * bytes_per_elem
-        // = 2 * 8 * 512 * 4 * 64 * 2.0 = 2_097_152 bytes (2 MiB)
-        assertEquals(2_097_152L, ResourceEstimator.kvCacheBytes(nLayers = 8, nCtx = 512, nKvHeads = 4, headDim = 64))
+        // KV = 2 * n_layers * n_ctx * n_kv_heads * head_dim * bytes_per_elem
+        // = 2 * 8 * 512 * 4 * 64 = 2_097_152 elements; f16 (2.0 B/elem) -> 4_194_304 bytes
+        assertEquals(4_194_304L, ResourceEstimator.kvCacheBytes(nLayers = 8, nCtx = 512, nKvHeads = 4, headDim = 64))
+        // q8_0 (1.0625 B/elem) for the same arch:
+        assertEquals(2_228_224L, ResourceEstimator.kvCacheBytes(nLayers = 8, nCtx = 512, nKvHeads = 4, headDim = 64, bytesPerElem = ResourceEstimator.KV_BYTES_Q8_0))
     }
 
     @Test
