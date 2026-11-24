@@ -41,8 +41,8 @@ jobs:
 
       - name: Declared pairing (R2/R4 - build job is the final arbiter)
         run: |
-          echo "Kotlin 2.3.21 + KSP 2.3.14 (KSP2 standalone versioning)."
-          echo "AGP 9.5.2 Kotlin mechanism: external org.jetbrains.kotlin.android, defined ONCE in build-logic (R2)."
+          echo "Kotlin 2.3.21 (KGP on classpath via jvm/compose markers) + KSP 2.3.14 (KSP2 standalone)."
+          echo "AGP 9.5.2 Kotlin mechanism: BUILT-IN Kotlin (R2) - AGP 9 rejects external kotlin-android."
 
   build:
     name: Build + guards

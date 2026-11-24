@@ -1,11 +1,11 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 // aura.android.library
 // Spec R6: unique namespace com.aura.neon.<module.path>, computed from the project path.
-// Spec R2: external org.jetbrains.kotlin.android (ONE mechanism, defined here only).
+// Spec R2: AGP 9 built-in Kotlin only (external kotlin-android is rejected by AGP 9.5.2).
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
 }
 
 val auraNamespace: String = "com.aura.neon" + project.path.replace(":", ".")
@@ -24,7 +24,7 @@ android {
     }
 }
 
-kotlin {
+tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_17)
     }

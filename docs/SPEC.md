@@ -31,6 +31,12 @@ v2.5 -> v2.6 (live verification pass, 2026-11-24):
   W4  Robolectric latest stable = 4.18.1 (new declared pin).
   W5  Preflight probe treats 429/5xx as transient (rate limits), only
       definitive 404 fails a pin.
+  W6  AGP 9.5.2 REJECTS the external org.jetbrains.kotlin.android
+      plugin ("no longer required since AGP 9.0", CI run 45316588951)
+      -> R2 flipped to BUILT-IN Kotlin in the two Android convention
+      plugins (the single flip point R2 was designed for). KGP 2.3.21
+      stays on the build classpath via the kotlin-jvm/compose markers
+      (AGP runtime minimum is 2.2.10 - no forced downgrade).
 
 PROJECT INFO
 ------------------------------------------------------------
@@ -145,8 +151,11 @@ PLACEMENTS (RESOLVED)
 BUILD RULES (CRITICAL)
 ------------------------------------------------------------
 R1  Catalog at gradle/libs.versions.toml. All versions pinned.
-R2  AGP 9 Kotlin: EXACTLY ONE mechanism per module (external
-    org.jetbrains.kotlin.android), defined ONCE in build-logic.
+R2  AGP 9 Kotlin: EXACTLY ONE mechanism - BUILT-IN Kotlin. AGP 9.5.2
+    rejects the external org.jetbrains.kotlin.android plugin
+    (CI-confirmed, run 45316588951). Defined ONCE in build-logic;
+    KGP on the classpath = the Kotlin pin via jvm/compose markers
+    (AGP runtime minimum 2.2.10).
 R3  Every Compose module: compose-compiler plugin (= Kotlin pin) +
     buildFeatures.compose=true + platform(BOM). NEVER set
     composeOptions.kotlinCompilerExtensionVersion.

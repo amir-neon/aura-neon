@@ -78,7 +78,7 @@ probe "marker-agp-library"       "$G/com/android/library/com.android.library.gra
 
 echo "----"
 echo "KSP<->Kotlin (R4): kotlin=2.3.21, ksp=2.3.14 (KSP2 standalone versioning)."
-echo "AGP9 Kotlin mechanism (R2): external org.jetbrains.kotlin.android, defined ONCE in build-logic."
+echo "AGP9 Kotlin mechanism (R2): BUILT-IN Kotlin (AGP 9 rejects external kotlin-android)."
 echo "The first build job is the final arbiter of both pairings."
 
 if [ "$FAILED" -ne 0 ]; then

@@ -1,12 +1,14 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 // aura.android.application
-// Spec R2: EXACTLY ONE Kotlin mechanism per Android module (external
-// org.jetbrains.kotlin.android here), defined ONCE in build-logic. Never also AGP built-in.
-// Spec R6: app namespace = com.aura.neon; applicationId = com.aura.neon.
+// Spec R2: EXACTLY ONE Kotlin mechanism - AGP 9 BUILT-IN Kotlin.
+// Confirmed by CI (run 45316588951): AGP 9.5.2 REJECTS the external
+// org.jetbrains.kotlin.android plugin ("no longer required since AGP 9.0").
+// The KGP version on the build classpath stays 2.3.21 via the
+// kotlin-jvm / kotlin-compose plugin markers (>= AGP's 2.2.10 minimum).
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -27,7 +29,9 @@ android {
     }
 }
 
-kotlin {
+// Built-in Kotlin: configure via the compile tasks (extension type is KGP's,
+// which AGP 9 depends on at runtime - same classes, version from classpath).
+tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_17)
     }
